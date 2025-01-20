@@ -23,5 +23,3 @@ Contribuições são bem-vindas\! Se você encontrar algum bug ou tiver alguma s
 
 * **Histórico de cálculos:** Implementação de um campo para exibir as últimas operações realizadas.
 * **Temas personalizáveis:** Adição de opções para customizar a aparência da calculadora.
-
-![Imagem da calculadora em funcionamento](imagem/calculadora.png)
