@@ -8,15 +8,17 @@ namespace Calculadora
         }
 
         private int a;
+        private int impares=1;
+        private int cont;
         private int b;
         private int c;
-        private decimal d =0;
-        private decimal f=0;
+        private decimal d = 0;
+        private decimal f = 0;
         private string ope;
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "2";
             }
@@ -28,7 +30,7 @@ namespace Calculadora
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "1";
             }
@@ -40,7 +42,7 @@ namespace Calculadora
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "3";
             }
@@ -52,7 +54,7 @@ namespace Calculadora
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "4";
             }
@@ -64,7 +66,7 @@ namespace Calculadora
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "5";
             }
@@ -76,7 +78,7 @@ namespace Calculadora
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "6";
             }
@@ -88,7 +90,7 @@ namespace Calculadora
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "7";
             }
@@ -100,7 +102,7 @@ namespace Calculadora
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "8";
             }
@@ -112,7 +114,7 @@ namespace Calculadora
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "9";
             }
@@ -133,7 +135,7 @@ namespace Calculadora
 
         private void button0_Click(object sender, EventArgs e)
         {
-            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x")
+            if (resultado.Text == "+" || resultado.Text == "-" || resultado.Text == "/" || resultado.Text == "x" || resultado.Text == "^")
             {
                 resultado.Text = "0";
             }
@@ -153,7 +155,7 @@ namespace Calculadora
             {
                 f = decimal.Parse(resultado.Text);
             }
-           
+
 
             switch (ope)
             {
@@ -175,7 +177,7 @@ namespace Calculadora
                         d = d + b;
                     }
                     break;
-                   
+
 
                 case "-":
                     if (d == 0)
@@ -230,6 +232,20 @@ namespace Calculadora
                     }
                     break;
 
+                case "POW":
+                    if (d == 0)
+                    {
+                        c = 1;
+                        for (int i = 0; i<b; i++)
+                        {
+                            c*=a;
+                            resultado.Text = c.ToString();
+                        }
+                       
+                    }
+                    
+                    break;
+
 
             }
 
@@ -242,14 +258,14 @@ namespace Calculadora
                 a = int.Parse(resultado.Text);
                 resultado.Text = "x";
                 ope = "x";
-            } 
+            }
             else
             {
                 d = decimal.Parse(resultado.Text);
                 resultado.Text = "x";
                 ope = "x";
             }
-            
+
         }
 
         private void buttonDiv_Click(object sender, EventArgs e)
@@ -304,11 +320,34 @@ namespace Calculadora
         private void buttonErase_Click(object sender, EventArgs e)
         {
             resultado.Text = "";
+            cont = 0;
+            impares = 1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Raiz_Click(object sender, EventArgs e)
+        {
+            a = int.Parse(resultado.Text);
+            
+            while (a > 0)
+            {
+                a -= impares;
+                impares += 2;
+                cont++;
+            }
+            
+            resultado.Text = cont.ToString();
+        }
+
+        private void Power_Click(object sender, EventArgs e)
+        {   
+                a = int.Parse(resultado.Text);
+                resultado.Text = "^";
+                ope = "POW";
         }
     }
 }

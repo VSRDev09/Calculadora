@@ -47,6 +47,8 @@
             buttonMinus = new Button();
             buttonMulti = new Button();
             buttonDiv = new Button();
+            Raiz = new Button();
+            Power = new Button();
             SuspendLayout();
             // 
             // button1
@@ -253,11 +255,35 @@
             buttonDiv.UseVisualStyleBackColor = false;
             buttonDiv.Click += buttonDiv_Click;
             // 
+            // Raiz
+            // 
+            Raiz.BackColor = SystemColors.ButtonFace;
+            Raiz.Location = new Point(12, 506);
+            Raiz.Name = "Raiz";
+            Raiz.Size = new Size(308, 44);
+            Raiz.TabIndex = 25;
+            Raiz.Text = "Raiz Quadrada";
+            Raiz.UseVisualStyleBackColor = false;
+            Raiz.Click += Raiz_Click;
+            // 
+            // Power
+            // 
+            Power.BackColor = SystemColors.ButtonFace;
+            Power.Location = new Point(12, 556);
+            Power.Name = "Power";
+            Power.Size = new Size(308, 44);
+            Power.TabIndex = 26;
+            Power.Text = "Elevado a";
+            Power.UseVisualStyleBackColor = false;
+            Power.Click += Power_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(332, 505);
+            ClientSize = new Size(332, 619);
+            Controls.Add(Power);
+            Controls.Add(Raiz);
             Controls.Add(buttonDiv);
             Controls.Add(buttonMulti);
             Controls.Add(buttonMinus);
@@ -306,5 +332,7 @@
         private Button buttonMinus;
         private Button buttonMulti;
         private Button buttonDiv;
+        private Button Raiz;
+        private Button Power;
     }
 }
