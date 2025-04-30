@@ -6,7 +6,7 @@ Este projeto é uma calculadora básica desenvolvida em C# utilizando a bibliote
 
 ## Funcionalidades
 
-* **Operações básicas:** Soma, subtração, multiplicação e divisão.
+* **Operações básicas:** Soma, subtração, multiplicação, divisão, raiz quadrada e potências.
 * **Interface intuitiva:** Design simples e fácil de usar.
 
 ## Tecnologias Utilizadas
